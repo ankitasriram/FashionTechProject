@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
+import time
 
-# Target Vinted category (e.g., women's dresses)
-url = "https://www.vinted.com/women/clothes/dresses"
-
+# Test basic connection
+url = "https://www.thredup.com/women/clothing/dresses"
 headers = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -13,15 +13,12 @@ headers = {
     'Upgrade-Insecure-Requests': '1',
 }
 
-# Start a session with headers
 session = requests.Session()
 session.headers.update(headers)
 
-# Send the request
+url = "https://www.thredup.com/women/clothing/dresses"
 response = session.get(url)
 print(f"Status Code: {response.status_code}")
-
-# Parse the response
-soup = BeautifulSoup(response.content, 'html.parser')
-title = soup.title.string if soup.title else "No title found"
-print(f"Page title: {title}")
+response = requests.get(url, headers=headers)
+print(f"Status Code: {response.status_code}")
+print(f"Page title: {BeautifulSoup(response.content, 'html.parser').title.string}")
