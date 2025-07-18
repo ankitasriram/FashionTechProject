@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  --custom-brown: #603F37;
+  --dark-orange: #DD9037;
+  --light-orange: #EFB87A;
+  --cream: #FFFBEE;
+}
+
+@theme inline {
+  --color-custom-brown: var(--custom-brown);
+  --color-dark-orange: var(--dark-orange);
+  --color-light-orange: var(--light-orange);
+  --color-cream: var(--cream);
+
+}
+
+body {
+  font-family: "Kulim Park", sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+}
